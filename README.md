@@ -82,7 +82,7 @@ def list_available():
 ```python
 @app.route('/ip/subnet_calculator', methods=['GET'])
 def subnet_calc():
-    # Endpoint implementation
-    # ...
-
+    #  implementation
+    # ...    
+```
 
