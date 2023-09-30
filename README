@@ -1,0 +1,88 @@
+
+# IP Address Management API
+
+This API provides endpoints to manage and allocate IP addresses.
+
+## Allocate IP Address
+
+### Endpoint: `/ip/allocate`
+- Method: POST
+- Request Body:
+  ```json
+  {
+      "customer_name": "John Doe",
+      "email": "johndoe@email.com"
+  }
+  ```
+- Response:
+  - Status 201 for success, with allocated IP details.
+  - Status 400 for bad request (missing customer name or email).
+  - Status 500 if no IPs are available.
+
+```python
+@app.route('/ip/allocate', methods=['POST'])
+def allocate_ip():
+    # Endpoint implementation
+    # ...
+```
+
+## Release IP Address
+
+### Endpoint: `/ip/release/{ipAddress}`
+- Method: PUT
+- Response:
+  - Status 200 for success.
+  - Status 404 if IP not found or not allocated.
+
+```python
+@app.route('/ip/release/<ip_address>', methods=['PUT'])
+def release_ip(ip_address):
+    # Endpoint implementation
+    # ...
+```
+
+## List Allocated IPs
+
+### Endpoint: `/ip/allocated`
+- Method: GET
+- Response:
+  - Status 200 with a list of allocated IPs and associated customer details.
+
+```python
+@app.route('/ip/allocated', methods=['GET'])
+def list_allocated():
+    # Endpoint implementation
+    # ...
+```
+
+## List Available IPs
+
+### Endpoint: `/ip/available`
+- Method: GET
+- Response:
+  - Status 200 with a list of available IPs.
+
+```python
+@app.route('/ip/available', methods=['GET'])
+def list_available():
+    # Endpoint implementation
+    # ...
+```
+
+## IP Subnet Calculator
+
+### Endpoint: `/ip/subnet_calculator`
+- Method: GET
+- Query Parameters:
+  - `ip_address` (e.g., 192.168.1.1)
+  - `subnet_mask` (e.g., /24) CIDR Notation
+- Response:
+  - Status 200 with network address, broadcast address, and valid IP range.
+
+```python
+@app.route('/ip/subnet_calculator', methods=['GET'])
+def subnet_calc():
+    # Endpoint implementation
+    # ...
+
+
