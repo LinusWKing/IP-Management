@@ -22,7 +22,7 @@ This API provides endpoints to manage and allocate IP addresses.
 ```python
 @app.route('/ip/allocate', methods=['POST'])
 def allocate_ip():
-    # Endpoint implementation
+    # implementation
     # ...
 ```
 
@@ -37,7 +37,7 @@ def allocate_ip():
 ```python
 @app.route('/ip/release/<ip_address>', methods=['PUT'])
 def release_ip(ip_address):
-    # Endpoint implementation
+    # implementation
     # ...
 ```
 
@@ -51,7 +51,7 @@ def release_ip(ip_address):
 ```python
 @app.route('/ip/allocated', methods=['GET'])
 def list_allocated():
-    # Endpoint implementation
+    # implementation
     # ...
 ```
 
@@ -65,7 +65,7 @@ def list_allocated():
 ```python
 @app.route('/ip/available', methods=['GET'])
 def list_available():
-    # Endpoint implementation
+    # implementation
     # ...
 ```
 
