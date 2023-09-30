@@ -6,21 +6,19 @@ services:
       context: .
     ports:
       - 5000:5000
+    env_file:
+      - .env
     depends_on:
       - mariadb
-    environment:
-      - API_KEY=EfVeeellmvSAEZrYjJi-9Q
-      - DB_URI=mysql://ips:password@localhost:3306/ipmanagement
 
   mariadb:
     image: mariadb:latest
     ports:
-      - 3306:3306
+      - 32000:3306
     volumes:
       - mariadb_data:/var/lib/mysql
     environment:
-      MSYQL_ROOT_PASSWORD:
-
+      MARIADB_ROOT_PASSWORD: password
 
 volumes:
   mariadb_data:

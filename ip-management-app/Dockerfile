@@ -1,12 +1,16 @@
-FROM python:slim
+FROM python:3.11.5-slim
 
-ENV FLASK_APP = app.py
+
+RUN apt-get update && apt-get install -y \
+    python3-mysqldb libmariadb-dev-compat libmariadb-dev
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+COPY . /app
+
+
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 5000
 
-CMD [ "flask", "run" ]
+CMD [ "python", "app.py" ]
