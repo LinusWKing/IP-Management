@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  flask-app:
+    build:
+      context: .
+    ports:
+      - 5000:5000
+    depends_on:
+      - mariadb
+    environment:
+      - API_KEY=EfVeeellmvSAEZrYjJi-9Q
+      - DB_URI=mysql://ips:password@localhost:3306/ipmanagement
+
+  mariadb:
+    image: mariadb:latest
+    ports:
+      - 3306:3306
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    environment:
+      MSYQL_ROOT_PASSWORD:
+
+
+volumes:
+  mariadb_data:
